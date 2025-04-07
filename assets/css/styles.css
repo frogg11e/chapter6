@@ -7,13 +7,10 @@
 body {
 
 	margin: 1rem;
-	background: url("assets/img/flames.gif");
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
+	background-color: black;
 	color: whitesmoke;
 	font-size: 5rem;
-	overflow: hidden;
+	background: url("assets/img/flames.gif") no-repeat center/cover;
 
 }
 
@@ -30,5 +27,12 @@ margin: 15% 4rem 0 4rem;
 
 padding-bottom: 2rem;
 border-bottom: 2px solid rgb(220, 200, 100);
+
+}
+
+html {
+
+width: 100%;
+height: 100%;
 
 }
