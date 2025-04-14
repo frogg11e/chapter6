@@ -4,87 +4,95 @@
     <meta charset="utf-8" />
     <title>Haiku Chapter6 Practice</title>
     <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&display=swap"
+      rel="stylesheet"
+    />
     <style>
-      * {
-  font-family: Arial;
-}
-
-
-body {
+      body {
         margin: 1rem;
         background-color: black;
         color: whitesmoke;
         font-size: 5rem;
-        background: url("assets/img/flames.gif") no-repeat center/cover;
+        font-family: "Delius Swash Caps";
+        background: url("assets/img/rain.gif") no-repeat center/cover;
       }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-  margin: 15% 4rem 0 4rem;
-}
+      .delius-swash-caps-regular {
+        font-family: "Delius Swash Caps", cursive;
+        font-weight: 400;
+        font-style: normal;
+      }
 
-.last {
-  padding-bottom: 2rem;
-  border-bottom: 2px solid rgb(220, 200, 100);
-}
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+        margin: 15% 4rem 0 4rem;
+      }
 
-html {
-  width: 100%;
-  height: 100%;
-}
+      .last {
+        padding-bottom: 2rem;
+        border-bottom: 2px solid rgb(58, 189, 154);
+      }
 
-body {
+      html {
+        width: 100%;
+        height: 100%;
+      }
 
-transition-property: transform;
-transition-duration: 3s;
-
-}
-
+      body {
+        transition-property: transform;
+        transition-duration: 3s;
+      }
     </style>
   </head>
   <body>
     <div class="grid-container">
-      <div>A</div>
-      <div>radiant</div>
-      <div class="last">young</div>
-      <div>woman</div>
-      <div>to</div>
-      <div>light</div>
+      <div>Rain</div>
+      <div>on</div>
+      <div>my</div>
+      <div class="last">window</div>
+      <div>I</div>
+      <div>know</div>
       <div>the</div>
-      <div class="last">darkest</div>
-      <div>corners</div>
-      <div>of</div>
-      <div class="last">winter</div>
+      <div>sun</div>
+      <div>will</div>
+      <div>come</div>
+      <div class="last">out</div>
+      <div>and</div>
+      <div>bring</div>
+      <div>light</div>
+      <div class="last">again.</div>
     </div>
 
-<script>
+    <script>
+      function randomNumber(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+      // define divs variable
+      let divs = document.querySelectorAll(".grid-container div");
+      function randomize() {
+        //apply only to each of the div tags
+        divs.forEach(function (div) {
+          let scale = randomNumber(0.5, 1.2);
+          let translateX = randomNumber(0, 50);
+          let translateY = randomNumber(0, 20);
+          let rotate = randomNumber(0, 360);
+          //half of the time do this
+          if (Math.random() > 0.5) {
+            scale = 1; //dont affect scale
+            translateX = randomNumber(0, 80);
+            translateY = randomNumber(0, 80);
+          }
+          div.style.transform = `scale(${scale}) translate(${translateX}%, ${translateY}%) rotate(${rotate}deg)`;
+        });
+      }
+      document.addEventListener("click", randomize);
 
-function randomNumber(min, max){
-  return (Math.random() * (max-min)) + min;
-}
-// define divs variable
-let divs = document.querySelectorAll(".grid-container div");
-function randomize() {
-//apply only to each of the div tags
-divs.forEach(function (div) {
-let scale = randomNumber(.5, 1.2);
-let translateX = randomNumber(0, 50);
-let translateY = randomNumber(0, 20);
-let rotate = randomNumber(0, 360);
-//half of the time do this
-if (Math.random() > .5) {
-scale = 1; //dont affect scale
-translateX = randomNumber(0, 80);
-translateY = randomNumber(0, 80);
-}
-div.style.transform = `scale(${scale}) translate(${translateX}%, ${translateY}%) rotate(${rotate}deg)`;
-});
-}
-document.addEventListener("click", randomize);
-
-/* let rotation = 0;
+      /* let rotation = 0;
 document.addEventListener("click", function () {
   let min = 10;
   let max = 40;
@@ -92,6 +100,6 @@ document.addEventListener("click", function () {
   document.body.style.transform = `rotate(${rotation}deg)`;
 });
 */
-</script>
+    </script>
   </body>
 </html>
